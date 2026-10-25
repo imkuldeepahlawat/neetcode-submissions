@@ -1,0 +1,25 @@
+class Solution {
+public:
+    int trap(vector<int>& nums) {
+        int n = nums.size();
+        int l = 0;
+        int r = n-1;
+        int lm = nums[l];
+        int rm = nums[r];
+        int sum = 0;
+        while(l<r){
+            if(lm<rm){
+                l++;
+                lm = max(lm,nums[l]);
+                sum += lm-nums[l];
+            }else{
+                r--;
+                rm = max(rm,nums[r]);
+                sum += rm-nums[r];
+            }
+        }
+        // creating both;
+        
+        return sum;
+    }
+};
